@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Example · PipingTool.jl</title><meta name="title" content="Example · PipingTool.jl"/><meta property="og:title" content="Example · PipingTool.jl"/><meta property="twitter:title" content="Example · PipingTool.jl"/><meta name="description" content="Documentation for PipingTool.jl."/><meta property="og:description" content="Documentation for PipingTool.jl."/><meta property="twitter:description" content="Documentation for PipingTool.jl."/><script data-outdated-warner src="../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.63.2/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../search_index.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-mocha.css" data-theme-name="catppuccin-mocha"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-macchiato.css" data-theme-name="catppuccin-macchiato"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-frappe.css" data-theme-name="catppuccin-frappe"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-latte.css" data-theme-name="catppuccin-latte"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href="../">PipingTool.jl</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li><a class="tocitem" href="../">Home</a></li><li><a class="tocitem" href="../documentation/">Documentation</a></li><li class="is-active"><a class="tocitem" href>Example</a><ul class="internal"><li><a class="tocitem" href="#1.-First-step:-Load-the-tool"><span>1. First step: Load the tool</span></a></li><li><a class="tocitem" href="#2.-Second-step:-Load-your-data"><span>2. Second step: Load your data</span></a></li><li><a class="tocitem" href="#3.-Third-step:-Define-the-topology"><span>3. Third step: Define the topology</span></a></li><li><a class="tocitem" href="#4.-Fourth-step:-Define-network-operation-parameters"><span>4. Fourth step: Define network operation parameters</span></a></li><li><a class="tocitem" href="#5.-Fifth-step:-Call-sizing-functions-and-agregation-algorithm"><span>5. Fifth step: Call sizing functions and agregation algorithm</span></a></li></ul></li><li><a class="tocitem" href="../licence/">Licence</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Example</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Example</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/polymtl-bee/PipingTool" title="View the repository on GitHub"><span class="docs-icon fa-brands"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/polymtl-bee/PipingTool/blob/main/docs/src/example.md" title="Edit source on GitHub"><span class="docs-icon fa-solid"></span></a><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="Example-of-use"><a class="docs-heading-anchor" href="#Example-of-use">Example of use</a><a id="Example-of-use-1"></a><a class="docs-heading-anchor-permalink" href="#Example-of-use" title="Permalink"></a></h1><p>Here is a case example on how to use this tool. Let&#39;s say we want to size a heating network for the three accuracy approaches. Let&#39;s suppose the network topology is described by the following figure:</p><p><img src="../img/RealTopology.png" alt="Example network topolgy"/></p><h2 id="1.-First-step:-Load-the-tool"><a class="docs-heading-anchor" href="#1.-First-step:-Load-the-tool">1. First step: Load the tool</a><a id="1.-First-step:-Load-the-tool-1"></a><a class="docs-heading-anchor-permalink" href="#1.-First-step:-Load-the-tool" title="Permalink"></a></h2><p>First, make sure you have all the librairies used in PipingTool installed on your Julia.</p><pre><code class="nohighlight hljs">Pkg.add CSV, DataFrames, NonlinearSolve, PrettyTables, Printf, Statistics, Unitful, DataStructures, OrderedCollections, PlotlyJS, GraphPlot, Graphs</code></pre><p>Now, let&#39;s create a new file &quot;myproject.jl&quot; at the root of the tool. You should obtain a structure close to thise one:</p><pre><code class="nohighlight hljs">docs/
+src/
+    PipingTool.jl
+    TopologyStruct.jl
+    WaterProperties.jl
+    Typical piping sizes and properties.csv
+example.jl
+myproject.jl</code></pre><p>We will work in this new file. First of all, let&#39;s load all of the PipingTool functions.</p><pre><code class="nohighlight hljs"># PipingTool Librairies
+include(&quot;src/PipingTool.jl&quot;)
+import .PipingTool
+# Librairies
+using CSV, DataFrames, NonlinearSolve, PrettyTables, Printf, Statistics
+using Unitful, DataStructures, OrderedCollections, PlotlyJS
+using GraphPlot, Graphs, Compose, Cairo, Fontconfig</code></pre><p>And finally, we&#39;ll give a name to this case study:</p><pre><code class="nohighlight hljs">scenarioName = &quot;example&quot;   # Used as folder name in output directory.</code></pre><h2 id="2.-Second-step:-Load-your-data"><a class="docs-heading-anchor" href="#2.-Second-step:-Load-your-data">2. Second step: Load your data</a><a id="2.-Second-step:-Load-your-data-1"></a><a class="docs-heading-anchor-permalink" href="#2.-Second-step:-Load-your-data" title="Permalink"></a></h2><p>Now is the time to make sure you have loads file in the following format. Where in the first column are the timesteps, and each other columns represent the loads associated with a building/unit/whatever. Here is an example of load data CSV file:</p><table><tr><th style="text-align: right">TIME</th><th style="text-align: right">LOADS_1</th><th style="text-align: right">LOADS_2</th><th style="text-align: right">...</th><th style="text-align: right">LOADS_N</th></tr><tr><td style="text-align: right">1.0</td><td style="text-align: right">0.0</td><td style="text-align: right">0.0</td><td style="text-align: right">...</td><td style="text-align: right">23456.0</td></tr><tr><td style="text-align: right">2.0</td><td style="text-align: right">0.0</td><td style="text-align: right">0.0</td><td style="text-align: right">...</td><td style="text-align: right">456567.0</td></tr><tr><td style="text-align: right">3.0</td><td style="text-align: right">56780.0</td><td style="text-align: right">0.0</td><td style="text-align: right">...</td><td style="text-align: right">543466.0</td></tr><tr><td style="text-align: right">...</td><td style="text-align: right">...</td><td style="text-align: right">...</td><td style="text-align: right">...</td><td style="text-align: right">...</td></tr><tr><td style="text-align: right">8760.0</td><td style="text-align: right">12306.0</td><td style="text-align: right">0.0</td><td style="text-align: right">...</td><td style="text-align: right">21786.0</td></tr></table><p>Then, add this line so you can load the files using CSV reading function using <code>path_to_my_data</code> as your data&#39;s path.</p><pre><code class="nohighlight hljs">data = CSV.read(&quot;path_to_my_data.csv&quot;, DataFrame, header=1, skipto=2)</code></pre><h2 id="3.-Third-step:-Define-the-topology"><a class="docs-heading-anchor" href="#3.-Third-step:-Define-the-topology">3. Third step: Define the topology</a><a id="3.-Third-step:-Define-the-topology-1"></a><a class="docs-heading-anchor-permalink" href="#3.-Third-step:-Define-the-topology" title="Permalink"></a></h2><p>Let&#39;s first add a few parameters line for the Energy hub (where the main plant will be) and the number of clusters:</p><pre><code class="nohighlight hljs"># Principal parameters --------------------------
+EnergyHub = &quot;All&quot;
+nb_cluster = 6
+ListOfNodes = names(select(data, Not(:TIME)))</code></pre><p>Now, let&#39;s create the System object that will contain our network topology:</p><pre><code class="nohighlight hljs"># Define Topology -------------------------------
+Topology = func.TopologyStruct.System(&quot;TopologyDetailed&quot;,
+                Vector{func.TopologyStruct.Node}(), 
+                Vector{func.TopologyStruct.Segment}(),
+                Vector{func.TopologyStruct.Segment}(),                   
+                EnergyHub)</code></pre><p>Then, we can define all the nodes by adding thoses lines:</p><pre><code class="nohighlight hljs"># Define Nodes ----------------------------------
+# Main loop nodes
+func.TopologyStruct.add_new_node(Topology,EnergyHub,[], data)
+func.TopologyStruct.add_new_node(Topology,&quot;1&quot;, [], data)
+func.TopologyStruct.add_new_node(Topology,&quot;2&quot;, [], data)
+func.TopologyStruct.add_new_node(Topology,&quot;3&quot;, [], data)
+func.TopologyStruct.add_new_node(Topology,&quot;4&quot;, [], data)
+func.TopologyStruct.add_new_node(Topology,&quot;5&quot;, [], data)
+func.TopologyStruct.add_new_node(Topology,&quot;6&quot;, [], data)
+# Building nodes
+for i in 1:length(ListOfNodes)
+    func.TopologyStruct.add_new_node(Topology, ListOfNodes[i], [ListOfNodes[i]], data)
+end
+</code></pre><p>Then, we can define all the segments by adding thoses lines:</p><pre><code class="nohighlight hljs"># Define Segment --------------------------------
+# Main supply
+func.TopologyStruct.add_new_segment(Topology,EnergyHub, &quot;1&quot;, 1)
+func.TopologyStruct.add_new_segment(Topology,&quot;1&quot;, &quot;2&quot;, 425)
+func.TopologyStruct.add_new_segment(Topology,&quot;2&quot;, &quot;3&quot;, 350)
+func.TopologyStruct.add_new_segment(Topology,&quot;3&quot;, &quot;4&quot;, 200)
+func.TopologyStruct.add_new_segment(Topology,&quot;4&quot;, &quot;5&quot;, 230)
+func.TopologyStruct.add_new_segment(Topology,&quot;5&quot;, &quot;6&quot;, 375)
+
+func.TopologyStruct.add_new_segment(Topology,&quot;6&quot;, &quot;9A&quot;, 70)
+func.TopologyStruct.add_new_segment(Topology,&quot;6&quot;, &quot;10A&quot;, 60)
+func.TopologyStruct.add_new_segment(Topology,&quot;10A&quot;, &quot;10B&quot;, 60)
+func.TopologyStruct.add_new_segment(Topology,&quot;10B&quot;, &quot;10C&quot;, 60)
+
+func.TopologyStruct.add_new_segment(Topology,&quot;5&quot;, &quot;1Aa&quot;, 100)
+func.TopologyStruct.add_new_segment(Topology,&quot;1Aa&quot;, &quot;1Ab&quot;, 100)
+func.TopologyStruct.add_new_segment(Topology,&quot;5&quot;, &quot;1Bb&quot;, 100)
+func.TopologyStruct.add_new_segment(Topology,&quot;1Bb&quot;, &quot;1Ba&quot;, 100)
+
+func.TopologyStruct.add_new_segment(Topology,&quot;4&quot;, &quot;2Ba&quot;, 30)
+func.TopologyStruct.add_new_segment(Topology,&quot;2Ba&quot;, &quot;2Bb&quot;, 50)
+func.TopologyStruct.add_new_segment(Topology,&quot;4&quot;, &quot;2Ca&quot;, 130)
+func.TopologyStruct.add_new_segment(Topology,&quot;2Ca&quot;, &quot;2Cb&quot;, 40)
+func.TopologyStruct.add_new_segment(Topology,&quot;4&quot;, &quot;2Ab&quot;, 60)
+func.TopologyStruct.add_new_segment(Topology,&quot;2Ab&quot;, &quot;2Aa&quot;, 40)
+
+func.TopologyStruct.add_new_segment(Topology,&quot;3&quot;, &quot;3Bc&quot;, 100)
+func.TopologyStruct.add_new_segment(Topology,&quot;3Bc&quot;, &quot;11A&quot;, 50)
+func.TopologyStruct.add_new_segment(Topology,&quot;3&quot;, &quot;3Aa&quot;, 100)
+func.TopologyStruct.add_new_segment(Topology,&quot;3Aa&quot;, &quot;3Ab&quot;, 50)
+func.TopologyStruct.add_new_segment(Topology,&quot;3Aa&quot;, &quot;3Ba&quot;, 50)
+Topology= func.TopologyStruct.add_new_segment(Topology,&quot;3Ba&quot;, &quot;3Bb&quot;, 50)
+
+func.TopologyStruct.add_new_segment(Topology,&quot;2&quot;, &quot;4B&quot;, 100)
+func.TopologyStruct.add_new_segment(Topology,&quot;4B&quot;, &quot;4A&quot;, 50)
+func.TopologyStruct.add_new_segment(Topology,&quot;2&quot;, &quot;5A&quot;, 120)
+func.TopologyStruct.add_new_segment(Topology,&quot;5A&quot;, &quot;5B&quot;, 90)
+
+func.TopologyStruct.add_new_segment(Topology,&quot;1&quot;, &quot;6A&quot;, 150)
+func.TopologyStruct.add_new_segment(Topology,&quot;1&quot;, &quot;7A&quot;, 1)
+func.TopologyStruct.add_new_segment(Topology,&quot;1&quot;, &quot;7B&quot;, 50)
+func.TopologyStruct.add_new_segment(Topology,&quot;7B&quot;, &quot;7C&quot;, 120)
+func.TopologyStruct.add_new_segment(Topology,&quot;7C&quot;, &quot;8A&quot;, 60)</code></pre><p>Then, we can define all the clusters with the following lines:</p><pre><code class="nohighlight hljs"># Define Cluster --------------------------------
+func.TopologyStruct.add_new_cluster(Topology,&quot;1&quot;)
+func.TopologyStruct.add_new_cluster(Topology,&quot;2&quot;)
+func.TopologyStruct.add_new_cluster(Topology,&quot;3&quot;)
+func.TopologyStruct.add_new_cluster(Topology,&quot;4&quot;)
+func.TopologyStruct.add_new_cluster(Topology,&quot;5&quot;)
+func.TopologyStruct.add_new_cluster(Topology,&quot;6&quot;)</code></pre><p>Finally, we need to distribute the loads of each node to all the segments in their path to the energy hub. This is done with the following line:</p><pre><code class="nohighlight hljs"># Distribute loads to Segments --------------------------------
+func.TopologyStruct.get_SegmentLoads(Topology, EnergyHub)</code></pre><p>And that&#39;s it ! You can wrap it up in a function if you want so you can call it whenever. And you can check your network in a beautiful graph with:</p><pre><code class="nohighlight hljs">func.TopologyStruct.see_graph(Topology, scenarioName)</code></pre><p>Here is what you should obtain:</p><p><img src="../img/TopologyDetailed.png" alt="Graph detailed"/></p><h2 id="4.-Fourth-step:-Define-network-operation-parameters"><a class="docs-heading-anchor" href="#4.-Fourth-step:-Define-network-operation-parameters">4. Fourth step: Define network operation parameters</a><a id="4.-Fourth-step:-Define-network-operation-parameters-1"></a><a class="docs-heading-anchor-permalink" href="#4.-Fourth-step:-Define-network-operation-parameters" title="Permalink"></a></h2><p>Before going to the actuals sizing and agregations algorithms, we need to define a few parameters for our next functions to work seamlessly. First, let&#39;s define our maximum authorized pressure drop in the network:</p><pre><code class="nohighlight hljs"> Δp′_max = 220u&quot;Pa/m&quot;</code></pre><p>Now let&#39;s define our network temperature for supply and return sides (we will also define temperature difference and mean temperature based our assumptions):</p><pre><code class="nohighlight hljs">Ts = 75u&quot;°C&quot;
+Tr = 45u&quot;°C&quot;
+ΔT = Ts - Tr
+T = Ts - ΔT/2</code></pre><p>Finally, let&#39;s define a few variables for our CSV outputs files:</p><pre><code class="nohighlight hljs">prefix = &quot;H-&quot;           # Used as a prefix before each segment names in the pipe characteristics CSV file.
+colName = &quot;QHEATTOT&quot;    # Used as the column name of each clusters loads file.
+append = false          # Used to indicate if we append or overwrite the pipe characterisation file.</code></pre><p>Well, append is usually <code>false</code> except if you have a heating and cooling network, where you might want pipes to be stored in the same file for heating and cooling. If so, <code>append=false</code> for the first sizing with heating parameters/loads and <code>append=true</code> for second sizing with cooling parameters/loads.</p><h2 id="5.-Fifth-step:-Call-sizing-functions-and-agregation-algorithm"><a class="docs-heading-anchor" href="#5.-Fifth-step:-Call-sizing-functions-and-agregation-algorithm">5. Fifth step: Call sizing functions and agregation algorithm</a><a id="5.-Fifth-step:-Call-sizing-functions-and-agregation-algorithm-1"></a><a class="docs-heading-anchor-permalink" href="#5.-Fifth-step:-Call-sizing-functions-and-agregation-algorithm" title="Permalink"></a></h2><p>Now it is time to add a few lines for the main functions. First here is how to call the sizing functions:</p><pre><code class="nohighlight hljs">func.select_pipes(Topology, Ts, Tr, data, Δp′_max)
+func.TopologyStruct.exportTopologySegment_ToCSV(Topology, scenarioName, prefix, append, colName)
+</code></pre><p>Add those few lines to get the simplified equivalent network:</p><pre><code class="nohighlight hljs">TopologySimplified = deepcopy(Topology)
+TopologySimplified.Name = &quot;TopologySimplified&quot;
+
+# Simpification algorithm
+TopologySimplified = func.SimplifyingClusterAlgorithm(TopologySimplified)
+
+# Save to CSV
+func.TopologyStruct.see_graph(TopologySimplified, scenarioName)
+func.TopologyStruct.exportTopologySegment_ToCSV(TopologySimplified, scenarioName, prefix, append, colName)
+</code></pre><p>Here is what you should obtain:</p><p><img src="../img/TopologySimplified.png" alt="Graph detailed"/></p><p>Add those few lines to get the reduced equivalent network:</p><pre><code class="nohighlight hljs">TopologyReduced = deepcopy(Topology)
+TopologyReduced.Name = &quot;TopologyReduced&quot;
+
+# Collapsing algorithm
+TopologyReduced = func.CollapsingClusterAlgorithm(TopologyReduced, T)
+
+# Reducing algorithm
+TopologyReduced = func.ReductingClusterAlgorithm(TopologyReduced, T, ΔT)
+
+# Save to CSV
+func.TopologyStruct.see_graph(TopologyReduced, scenarioName)
+func.TopologyStruct.exportTopologySegment_ToCSV(TopologyReduced, scenarioName, prefix, append, colName)</code></pre><p>Here is what you should obtain:</p><p><img src="../img/TopologyReduced.png" alt="Graph detailed"/></p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../documentation/">« Documentation</a><a class="docs-footer-nextpage" href="../licence/">Licence »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.19.0 on <span class="colophon-date" title="Friday 25 September 2026 17:37">Friday 25 September 2026</span>. Using Julia version 1.13.0.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
