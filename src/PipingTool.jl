@@ -2,6 +2,9 @@ module PipingTool
 
 export select_pipes, CollapsingClusterAlgorithm, ReductingClusterAlgorithm, SimplifyingClusterAlgorithm
 
+using Pkg
+Pkg.activate(".")
+
 # Data handling
 using CSV
 using DataFrames
