@@ -98,14 +98,14 @@ Main.PipingTool.SimplifyingClusterAlgorithm
 
 ### 4.1 Algorithm description
 
-This method aims at reducing the network complexity, while preserving not only flow rate, volume, and thermal conductivity but also loads delay to the energy hub.
+This method aims at reducing the network complexity, while preserving not only flow rate, volume, and thermal conductivity but also loads delay to the energy hub. Following algorithms are based on the work of Larsen H. et al[^3].
 The following figure shows the two-step method used for the reduced algorithm: first a clustering-tree algorithm, second a danish method algorithm.
 
 ![Reduced Method schema](img/NetworkmethodReducedAlgo.png)
 
 ### 4.2 Collapsing tree algorithm
 
-This method describes the equations used to transform an intersection between two branches into an equivalent linear network, as shown in previous figure. Branches 1 and 2 become branches A and B. This method is based on the work of Larsen H.  et al[^3]. This algorithm is repeated as many times as necessary so that each subnetwork is “collapsed” into a linear network. We will use the indices 1, 2, A, and B to refer, respectively, to the branches between nodes 1, 2, A, and B. Following table lists the variables introduced for this algorithm.
+This method describes the equations used to transform an intersection between two branches into an equivalent linear network, as shown in previous figure. Branches 1 and 2 become branches A and B. This algorithm is repeated as many times as necessary so that each subnetwork is “collapsed” into a linear network. We will use the indices 1, 2, A, and B to refer, respectively, to the branches between nodes 1, 2, A, and B. Following table lists the variables introduced for this algorithm.
 
 | Variable | Value                       |
 | -------- | --------------------------- |
@@ -161,7 +161,7 @@ The goal of this algorithm is to simplify linear networks, from a configuration 
 | $g_{BA}$ | $g_{BA}=\frac{\tau_3}{\tau_3+f_B \cdot \tau_2}$           |
 | $g_{BB}$ | $g_{BB}=\frac{f_B \cdot \tau_2}{\tau_3+f_B \cdot \tau_2}$ |
 
-The factors $f_A$ and $f_B$ define the portion of segment 2 that is assigned to segment 1 and the portion assigned to segment 3. Defined in this way, the allocated portion is determined by the loads: if the loads at node 1 are dominant, then branch 2 is mostly allocated to branch B, and thus branch A is virtually identical to branch 1. The loads, in turn, are divided into two parts by the variables $g$ depending on the time delays of each branch. Thus, the majority of a node’s loads are shifted to the node that is temporally closest. In this algorithm, a subnetwork consisting of three segments is reduced to an equivalent subnetwork consisting of two segments, as detailed in Figure XXX. The total length, water volumes, time delays, and heat losses are preserved. From these assumptions, we can then deduce all the characteristics of the equivalent network, summarized in following tables for pipes and for nodes.
+The factors $f_A$ and $f_B$ define the portion of segment 2 that is assigned to segment 1 and the portion assigned to segment 3. Defined in this way, the allocated portion is determined by the loads: if the loads at node 1 are dominant, then branch 2 is mostly allocated to branch B, and thus branch A is virtually identical to branch 1. The loads, in turn, are divided into two parts by the variables $g$ depending on the time delays of each branch. Thus, the majority of a node’s loads are shifted to the node that is temporally closest. In this algorithm, a subnetwork consisting of three segments is reduced to an equivalent subnetwork consisting of two segments. The total length, water volumes, time delays, and heat losses are preserved. From these assumptions, we can then deduce all the characteristics of the equivalent network, summarized in following tables for pipes and for nodes.
 
 | Equivalent characteristic   | Branch A  | Branch B |
 | --------------------------- | --------- | -------- |
