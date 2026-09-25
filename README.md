@@ -20,8 +20,3 @@ The first step involves defining the network. Next, a series of steps is used to
 The following figure shows an exemple of a real network and its two equivalent network for the reduced method and the simplified method proposed in PipingTool.
 
 ![Example NetworkComparison](img/NetworkComparison.png)
-
-### 1.3 Table of content
-
-```@contents
-```
