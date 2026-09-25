@@ -4,7 +4,7 @@
 
 ### 1.1 Topology formalism
 
-The first methodological step when using the PipingTool is to define the network. This involves formalizing the network in a language that is, on the one hand, understandable to humans and, on the other, flexible and logical for the machine. Let’s review a few terms and methods frequently used to formalize heating networks. Complex networks are mathematically represented by directed graphs [@lickledererThermohydraulicModelSmart2021]. A directed graph G is a pair (N, E) consisting of N, the set of junctions (called nodes), and E, the set of pipes (called edges). Edges can be considered as pairs of two nodes (N_{i}, N_{j}) or N_{i}, N_{J} \in N. Edges are therefore directed: they are arrows pointing from one node in the network to another. To indicate a flow in the opposite direction of this arrow, negative flow rates can be assigned. However, this method is risky when working in the TRNSYS environment, which only considers positive flow rates in all of its components. Finally, we will assume that the entire system is symmetrical in terms of its physical behavior: the same flow rates pass through the supply and return pipes. We will size them identically, assuming an average temperature $T=(T_{supply}-T_{return})/2$. Thus, two networks will be defined and sized subsequently ($G_{heat}$ and $G_{cool}$). Their spatial configuration is identical, but their operating temperatures and loads differ.
+The first methodological step when using the PipingTool is to define the network. This involves formalizing the network in a language that is, on the one hand, understandable to humans and, on the other, flexible and logical for the machine. Let’s review a few terms and methods frequently used to formalize heating networks. Complex networks are mathematically represented by directed graphs (Lickeder et al. [^1]). A directed graph G is a pair (N, E) consisting of N, the set of junctions (called nodes), and E, the set of pipes (called edges). Edges can be considered as pairs of two nodes (N_{i}, N_{j}) or N_{i}, N_{J} \in N. Edges are therefore directed: they are arrows pointing from one node in the network to another. To indicate a flow in the opposite direction of this arrow, negative flow rates can be assigned. However, this method is risky when working in the TRNSYS environment, which only considers positive flow rates in all of its components. Finally, we will assume that the entire system is symmetrical in terms of its physical behavior: the same flow rates pass through the supply and return pipes. We will size them identically, assuming an average temperature $T=(T_{supply}-T_{return})/2$. Thus, two networks will be defined and sized subsequently ($G_{heat}$ and $G_{cool}$). Their spatial configuration is identical, but their operating temperatures and loads differ.
 
 We can thus define the topology of a network as a set consisting of:
 
@@ -59,10 +59,10 @@ Main.PipingTool.WaterProperties.dynviscosity
 
 ### 2.2 Get each pipe properties
 
-To ensure the pipes are realistic from a hydraulic standpoint, it is important to verify that the flow rate through them is neither too low nor too high, so that pressure losses in the pipes do not play an overly significant role in modeling the network’s behavior. To do this, we assume a minimum flow rate of 10% of the maximum flow rate during network operation. Finally, and most importantly, we want to ensure that the sizing of the network’s pipes limits pressure losses to below a maximum threshold, set arbitrarily by default ($\Delta P_{max}=220\mbox{[Pa/m]}$). To do this, we proceed in several steps:
+To ensure the pipes are realistic from a hydraulic standpoint, it is important to verify that the flow rate through them is neither too low nor too high, so that pressure losses in the pipes do not play an overly significant role in modeling the network’s behavior. To do this, we assume a minimum flow rate of 10% of the maximum flow rate during network operation. Finally, and most importantly, we want to ensure that the sizing of the network’s pipes limits pressure losses to below a maximum threshold, set arbitrarily by default ($\Delta P_{max}=220$ \[Pa/m]). To do this, we proceed in several steps:
 
 1. First, for each segment, we calculate the maximum flow rate.
-2. Second, we calculate the pressure losses associated with this maximum flow rate for a set of reference pipes (from @nussbaumerHandbookPlanningDistrict2020). These reference pipes provide information on the pipe geometry as well as the linear thermal conductivities of the pipe, which are assumed to be constant and equal to $k_{\text{steel}} = 15 \mbox{ [W/(m·K)]}$ and $k_{\text{insulation}} = 0.027\mbox{ [W/(m·K)]}$.
+2. Second, we calculate the pressure losses associated with this maximum flow rate for a set of reference pipes (from Nussbaumer et al. [^2]). These reference pipes provide information on the pipe geometry as well as the linear thermal conductivities of the pipe, which are assumed to be constant and equal to $k_{steel} = 15$ \[W/(m·K)] and $k_{insulation} = 0.027$ \[W/(m·K)].
 3. Third, we select the pipe with the largest diameter whose pressure losses are below the set threshold.
 4. Fourth, we calculate the remaining properties of the pipes in the network (including the insulation thickness).
 
@@ -105,7 +105,7 @@ The following figure shows the two-step method used for the reduced algorithm: f
 
 ### 4.2 Collapsing tree algorithm
 
-This method describes the equations used to transform an intersection between two branches into an equivalent linear network, as shown in previous figure. Branches 1 and 2 become branches A and B. This method is based on the work of @larsenAggregatedDynamicSimulation2002. This algorithm is repeated as many times as necessary so that each subnetwork is “collapsed” into a linear network. We will use the indices 1, 2, A, and B to refer, respectively, to the branches between nodes 1, 2, A, and B. Following table lists the variables introduced for this algorithm.
+This method describes the equations used to transform an intersection between two branches into an equivalent linear network, as shown in previous figure. Branches 1 and 2 become branches A and B. This method is based on the work of Larsen H.  et al[^3]. This algorithm is repeated as many times as necessary so that each subnetwork is “collapsed” into a linear network. We will use the indices 1, 2, A, and B to refer, respectively, to the branches between nodes 1, 2, A, and B. Following table lists the variables introduced for this algorithm.
 
 | Variable | Value                       |
 | -------- | --------------------------- |
@@ -188,3 +188,7 @@ Those steps are realized by the following function:
 Main.PipingTool.ReductingClusterAlgorithm
 Main.PipingTool.ReducingSerialDanish
 ```
+
+[^1]: Licklederer et al., « Thermohydraulic model of Smart Thermal Grids with bidirectional power flow between prosumers ».
+[^2]: Nussbaumer et al., Handbook on Planning of District Heating Networks.
+[^3]: Larsen et al., « Aggregated dynamic simulation model of district heating networks ».
