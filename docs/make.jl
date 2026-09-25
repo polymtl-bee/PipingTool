@@ -2,6 +2,7 @@
 push!(LOAD_PATH,"../src/")
 include("../src/PipingTool.jl")
 import .PipingTool
+using Documenter
 
 makedocs(
          sitename = "PipingTool.jl",
