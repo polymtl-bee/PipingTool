@@ -6,7 +6,6 @@
 | Authors     | MEUNIER G., KUMMERT M. |
 | Licence     | MIT          |
 | Last update | October 2026 |
-| Documentation | [Wiki](https://polymtl-bee.github.io/PipingTool/dev/)|
 
 ### 1.1 Overview
 
