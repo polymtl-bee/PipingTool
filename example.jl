@@ -7,9 +7,7 @@ include("Lib/functions.jl")
 import .func
 
 # Data handling
-using CSV, DataFrames, NonlinearSolve, PrettyTables, Printf, Statistics
-using Unitful, DataStructures, OrderedCollections, PlotlyJS
-using GraphPlot, Graphs, Compose, Cairo, Fontconfig
+using CSV, DataFrames, NonlinearSolve, PrettyTables, Printf, Statistics, Unitful, DataStructures, OrderedCollections, PlotlyJS, GraphPlot, Graphs, Compose, Cairo, Fontconfig
 
 scenarioName = "example"   # Used as folder name in output directory.
 
