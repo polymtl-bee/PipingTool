@@ -1,4 +1,4 @@
-module func
+module PipingTool
 
 export select_pipes, CollapsingClusterAlgorithm, ReductingClusterAlgorithm, SimplifyingClusterAlgorithm
 

@@ -3,8 +3,8 @@
 # ===============================================================================
 
 # Include all pipes and network related functions
-include("Lib/functions.jl")
-import .func
+include("src/PipingTool.jl")
+import .PipingTool
 
 # Data handling
 using CSV, DataFrames, NonlinearSolve, PrettyTables, Printf, Statistics, Unitful, DataStructures, OrderedCollections, PlotlyJS, GraphPlot, Graphs, Compose, Cairo, Fontconfig

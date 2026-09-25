@@ -14,8 +14,8 @@ Pkg.add CSV, DataFrames, NonlinearSolve, PrettyTables, Printf, Statistics, Unitf
 Now, let's create a new file "myproject.jl" at the root of the tool. You should obtain a structure close to thise one:
 ```
 docs/
-Lib/
-    functions.jl
+src/
+    PipingTool.jl
     TopologyStruct.jl
     WaterProperties.jl
     Typical piping sizes and properties.csv
@@ -27,8 +27,8 @@ We will work in this new file. First of all, let's load all of the PipingTool fu
 
 ```
 # PipingTool Librairies
-include("Lib/functions.jl")
-import .func
+include("src/PipingTool.jl")
+import .PipingTool
 # Librairies
 using CSV, DataFrames, NonlinearSolve, PrettyTables, Printf, Statistics
 using Unitful, DataStructures, OrderedCollections, PlotlyJS
