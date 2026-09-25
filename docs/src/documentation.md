@@ -20,10 +20,10 @@ We can thus define the topology of a network as a set consisting of:
 Here are the built-in types used for the network formalism.
 
 ```@docs
-Main.func.TopologyStruct.Node
-Main.func.TopologyStruct.Segment
-Main.func.TopologyStruct.Cluster
-Main.func.TopologyStruct.System
+Main.PipingTool.TopologyStruct.Node
+Main.PipingTool.TopologyStruct.Segment
+Main.PipingTool.TopologyStruct.Cluster
+Main.PipingTool.TopologyStruct.System
 ```
 
 ### 1.3 Documentation of built-in functions for topology 
@@ -31,18 +31,18 @@ Main.func.TopologyStruct.System
 The following functions are used when creating a network topology:
 
 ```@docs
-Main.func.TopologyStruct.add_new_segment
-Main.func.TopologyStruct.add_new_node
-Main.func.TopologyStruct.add_new_cluster
+Main.PipingTool.TopologyStruct.add_new_segment
+Main.PipingTool.TopologyStruct.add_new_node
+Main.PipingTool.TopologyStruct.add_new_cluster
 ```
 
 The following functions are auxiliary functions used for various steps:
 
 ```@docs
-Main.func.TopologyStruct.get_SegmentLoads
-Main.func.TopologyStruct.get_Node_ChildSegmentsAndNodes
-Main.func.TopologyStruct.see_graph
-Main.func.TopologyStruct.exportTopologySegment_ToCSV
+Main.PipingTool.TopologyStruct.get_SegmentLoads
+Main.PipingTool.TopologyStruct.get_Node_ChildSegmentsAndNodes
+Main.PipingTool.TopologyStruct.see_graph
+Main.PipingTool.TopologyStruct.exportTopologySegment_ToCSV
 ```
 
 ## 2. Selecting reference pipes
@@ -52,9 +52,9 @@ Main.func.TopologyStruct.exportTopologySegment_ToCSV
 Here are the functions used to determined water characteristics depending on mean temperature.
 
 ```@docs
-Main.func.WaterProperties.density
-Main.func.WaterProperties.specheat
-Main.func.WaterProperties.dynviscosity
+Main.PipingTool.WaterProperties.density
+Main.PipingTool.WaterProperties.specheat
+Main.PipingTool.WaterProperties.dynviscosity
 ```
 
 ### 2.2 Get each pipe properties
@@ -69,7 +69,7 @@ To ensure the pipes are realistic from a hydraulic standpoint, it is important t
 Those steps are realized by the following function:
 
 ```@docs
-Main.func.select_pipes
+Main.PipingTool.select_pipes
 ```
 
 ## 3. Agregation method: Simplification algorithm
@@ -91,7 +91,7 @@ The goal of this algorithm is to obtain an equivalent network consisting of a si
 Those steps are realized by the following function:
 
 ```@docs
-Main.func.SimplifyingClusterAlgorithm
+Main.PipingTool.SimplifyingClusterAlgorithm
 ```
 
 ## 4. Agregation method: Reduced algorithm
@@ -143,8 +143,8 @@ Based on these assumptions, we can then calculate all the characteristics of the
 Those steps are realized by the following function:
 
 ```@docs
-Main.func.CollapsingClusterAlgorithm
-Main.func.CollapsingParallel
+Main.PipingTool.CollapsingClusterAlgorithm
+Main.PipingTool.CollapsingParallel
 ```
 
 ### 4.3 Danish method algorithm
@@ -185,6 +185,6 @@ The factors $f_A$ and $f_B$ define the portion of segment 2 that is assigned to 
 Those steps are realized by the following function:
 
 ```@docs
-Main.func.ReductingClusterAlgorithm
-Main.func.ReducingSerialDanish
+Main.PipingTool.ReductingClusterAlgorithm
+Main.PipingTool.ReducingSerialDanish
 ```
