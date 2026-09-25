@@ -2,8 +2,6 @@
 push!(LOAD_PATH,"../src/")
 include("../src/PipingTool.jl")
 import .PipingTool
-using CSV, DataFrames, NonlinearSolve, PrettyTables, Printf, Statistics, Unitful, DataStructures, OrderedCollections, PlotlyJS, GraphPlot, Graphs, Compose, Cairo, Fontconfig
-using Documenter
 
 makedocs(
          sitename = "PipingTool.jl",
