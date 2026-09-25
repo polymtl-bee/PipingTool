@@ -1,4 +1,5 @@
 name = "PipingTool"
+uuid = "cb529ec9-cd14-488c-8ef5-68d55f614847"
 authors = ["Guilwen Meunier <guilwen.meunier@etud.polymtl.ca>"]
 version = "3.0"
 
