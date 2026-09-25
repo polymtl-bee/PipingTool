@@ -1,12 +1,12 @@
 # Inside make.jl
 push!(LOAD_PATH,"../src/")
-include("../Lib/functions.jl")
-import .func
+include("../src/PipingTool.jl")
+import .PipingTool
 using Documenter
 
 makedocs(
          sitename = "PipingTool.jl",
-         modules  = [func],
+         modules  = [PipingTool],
          pages=[
                 "Home" => "index.md",
                 "Documentation" => "documentation.md",
