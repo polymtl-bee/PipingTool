@@ -1,6 +1,9 @@
 # Inside make.jl
 push!(LOAD_PATH,"../src/")
 include("../src/PipingTool.jl")
+using Pkg
+Pkg.instantiate()
+
 import .PipingTool
 using Documenter
 
