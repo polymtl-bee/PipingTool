@@ -2,10 +2,6 @@ module PipingTool
 
 export select_pipes, CollapsingClusterAlgorithm, ReductingClusterAlgorithm, SimplifyingClusterAlgorithm
 
-using Pkg
-Pkg.activate(".")
-Pkg.instantiate()
-
 # Data handling
 using CSV
 using DataFrames
@@ -90,7 +86,7 @@ function select_pipes(Topology, Tsupply, Treturn, QDataframe, Δp′_max)
     #region: Load selected pipes reference data file -------------------------------------------------------------------------
     # ------------------------------------------------------------------------------------------------------------------------
 
-    fname = "Lib/Typical piping sizes and properties.csv"
+    fname = "src/Typical piping sizes and properties.csv"
     pipes_ref = CSV.read(fname, DataFrame, header=3, skipto=5)
     units = CSV.read(fname, DataFrame, header=3, skipto=4, stringtype=String, limit=1)
     for name in names(pipes_ref)
