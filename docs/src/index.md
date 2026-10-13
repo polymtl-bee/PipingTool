@@ -14,7 +14,7 @@
 
 PipingTool employs a network formalism inspired by directed graph theory and uses CSV files containing buildings/units load data to size all pipes for three levels of topological accuracy. Following figure provides an overview of the methodology used by this tool. 
 
-![Overview of method](src/img/PipingTooldrawioENG.png)
+![Overview of method](img/PipingTooldrawioENG.png)
 
 This package have built-in functions for doing  
 1. Defining the network using built-in functions based on graph theory.
@@ -31,7 +31,7 @@ See ![Documentation](https://polymtl-bee.github.io/PipingTool/dev/documentation/
 
 The following figure shows an exemple of a real network and its two equivalent network for the reduced method and the simplified method proposed in PipingTool.
 
-![Example NetworkComparison](src/img/NetworkComparison.png)
+![Example NetworkComparison](img/NetworkComparison.png)
 
 See ![Example](https://polymtl-bee.github.io/PipingTool/dev/example/) section for a step-by-step tutorial on how to use the package for this example network.
 
