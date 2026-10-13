@@ -3,7 +3,7 @@ module PipingTool
 export select_pipes, CollapsingClusterAlgorithm, ReductingClusterAlgorithm, SimplifyingClusterAlgorithm
 
 import Pkg
-Pkg.activate()
+Pkg.activate(".")
 
 # Data handling
 using CSV

@@ -2,7 +2,7 @@
 push!(LOAD_PATH,"../src/")
 include("../src/PipingTool.jl")
 import Pkg
-Pkg.activate()
+Pkg.activate(".")
 
 import .PipingTool
 using Documenter
