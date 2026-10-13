@@ -4,6 +4,7 @@ export select_pipes, CollapsingClusterAlgorithm, ReductingClusterAlgorithm, Simp
 
 using Pkg
 Pkg.activate(".")
+Pkg.instantiate()
 
 # Data handling
 using CSV
